@@ -1,0 +1,214 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+@layer base {
+  :root {
+    --background: 0 0% 6%;
+    --card: 0 0% 10%;
+    --card-elevated: 0 0% 13%;
+    --border: 0 0% 18%;
+    --primary: 43 52% 54%;
+    --primary-light: 43 62% 67%;
+    --primary-dark: 35 42% 42%;
+    --muted: 0 0% 40%;
+    --muted-foreground: 0 0% 60%;
+    --foreground: 0 0% 96%;
+    --success: 158 64% 40%;
+    --danger: 0 72% 51%;
+    --warning: 38 92% 50%;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    -webkit-font-smoothing: antialiased;
+  }
+
+  [dir="rtl"] {
+    font-family: 'Plus Jakarta Sans', 'Segoe UI', Tahoma, Arial, sans-serif;
+  }
+}
+
+@layer utilities {
+  .font-tabular {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .gold-gradient {
+    background: linear-gradient(135deg, hsl(var(--primary-dark)), hsl(var(--primary-light)));
+  }
+
+  .gold-text {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .card-dark {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    border-radius: 12px;
+  }
+
+  .card-elevated {
+    background: hsl(var(--card-elevated));
+    border: 1px solid hsl(var(--border));
+    border-radius: 12px;
+  }
+
+  .step-active {
+    background: linear-gradient(135deg, hsl(var(--primary-dark)), hsl(var(--primary)));
+    color: #0f0f0f;
+  }
+
+  .step-completed {
+    background: hsl(var(--success));
+    color: #fff;
+  }
+
+  .slot-available {
+    border: 1px solid hsl(var(--border));
+    background: hsl(var(--card));
+    color: hsl(var(--foreground));
+    transition: all 0.15s ease;
+  }
+
+  .slot-available:hover {
+    border-color: hsl(var(--primary));
+    background: hsl(var(--primary) / 0.1);
+    color: hsl(var(--primary-light));
+  }
+
+  .slot-selected {
+    border: 1px solid hsl(var(--primary));
+    background: hsl(var(--primary) / 0.15);
+    color: hsl(var(--primary-light));
+  }
+
+  .slot-booked {
+    border: 1px solid hsl(var(--border));
+    background: hsl(0 0% 8%);
+    color: hsl(var(--muted));
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  .toggle-track {
+    transition: background-color 0.2s ease;
+  }
+
+  .toggle-thumb {
+    transition: transform 0.2s ease;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.3s ease forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .whatsapp-btn {
+    background: linear-gradient(135deg, #1fbe5e, #25d366);
+    transition: all 0.15s ease;
+  }
+
+  .whatsapp-btn:hover {
+    background: linear-gradient(135deg, #19a050, #1fbe5e);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
+  }
+
+  .whatsapp-btn:active {
+    transform: scale(0.98);
+  }
+
+  .gold-btn {
+    background: linear-gradient(135deg, hsl(var(--primary-dark)), hsl(var(--primary)));
+    color: #0f0f0f;
+    font-weight: 700;
+    transition: all 0.15s ease;
+  }
+
+  .gold-btn:hover {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px hsl(var(--primary) / 0.35);
+  }
+
+  .gold-btn:active {
+    transform: scale(0.98);
+  }
+
+  .gold-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+
+  .barber-card-hover {
+    transition: all 0.2s ease;
+  }
+
+  .barber-card-hover:hover {
+    border-color: hsl(var(--primary) / 0.6);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+  }
+
+  .barber-card-selected {
+    border-color: hsl(var(--primary)) !important;
+    box-shadow: 0 0 0 1px hsl(var(--primary)), 0 12px 32px rgba(0,0,0,0.4) !important;
+  }
+
+  .service-card-hover {
+    transition: all 0.2s ease;
+  }
+
+  .service-card-hover:hover {
+    border-color: hsl(var(--primary) / 0.6);
+    transform: translateY(-2px);
+  }
+
+  .service-card-selected {
+    border-color: hsl(var(--primary)) !important;
+    background: hsl(var(--primary) / 0.08) !important;
+  }
+
+  .rtl-flip {
+    direction: rtl;
+    text-align: right;
+  }
+
+  .ltr-flip {
+    direction: ltr;
+    text-align: left;
+  }
+}
